@@ -1,5 +1,5 @@
 package zooAnimales;
-import java.util.ArrayList;
+
 import gestion.Zona;
 
 public class Animal {
@@ -8,7 +8,7 @@ public class Animal {
 	private int edad;
 	private String habitat;
 	private String genero;
-	private static ArrayList<Zona> zona=new ArrayList<>();
+	private Zona zona;
 	
 	public Animal() {
 		this(null,0,null,null);
@@ -19,6 +19,7 @@ public class Animal {
 		this.edad=edad;
 		this.habitat=habitat;
 		this.genero=genero;
+		this.zona=null;
 		totalAnimales++;
 	
 	}
@@ -59,10 +60,10 @@ public class Animal {
 		return genero;
 	}
 	
-	public static void setZona(ArrayList<Zona> zona) {
-		Animal.zona=zona;
+	public void setZona(Zona zona) {
+		this.zona=zona;
 	}
-	public static ArrayList<Zona> getZona() {
+	public Zona getZona() {
 		return zona;
 	}
 	
@@ -78,14 +79,22 @@ public class Animal {
 		int cantpez=Pez.getListado().size();;
 		int cantanfibio=Anfibio.getListado().size();;
 		
-		return "Mamiferos: "+ cantmamifero+"\n"+ "Aves: "+ cantave +"\n"+ "Reptiles: "+ cantreptil+"\n" + "Peces: " +cantpez +"\n"+ "Anfibios: "+cantanfibio;
+		return "Mamiferos: "+cantmamifero+"\n"+ 
+		"Aves: "+cantave+"\n"+ 
+		"Reptiles: "+cantreptil+"\n" + 
+		"Peces: " +cantpez+"\n"+ 
+		"Anfibios: "+cantanfibio;
 		
 		
 	}
 	
 	public String toString() {
-		return "Mi nombre es "+ getNombre()+", tengo una edad de " +getEdad()+ ", habito en "+getHabitat()+" y mi genero es "+getGenero();
-		
+		if (getZona()!=null) {
+			return "Mi nombre es "+ getNombre()+", tengo una edad de " +getEdad()+ ", habito en "+getHabitat()+" y mi genero es "+getGenero()+", la zona en la que me ubico es "+getZona()+", en el "+getZona().getZoo();
+		}
+		else {
+		    return "Mi nombre es "+ getNombre()+", tengo una edad de " +getEdad()+ ", habito en "+getHabitat()+" y mi genero es "+getGenero();
+		}
 	}
 
 
