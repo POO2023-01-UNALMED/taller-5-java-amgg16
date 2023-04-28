@@ -78,7 +78,7 @@ public class Animal {
 		int cantpez=Pez.getListado().size();;
 		int cantanfibio=Anfibio.getListado().size();;
 		
-		return "Mamiferos: "+ cantmamifero+"\n"+ "Aves: "+ cantave +"\n"+ "Reptiles: "+ cantreptil+"\n" + "Peces: " +cantpez +"\n"+ "Anfibios: "+cantanfibio+"\n";
+		return "Mamiferos: "+ cantmamifero+"\n"+ "Aves: "+ cantave +"\n"+ "Reptiles: "+ cantreptil+"\n" + "Peces: " +cantpez +"\n"+ "Anfibios: "+cantanfibio;
 		
 		
 	}
